@@ -20,6 +20,8 @@ public class Takara {
 			System.out.print("\r\n\r\n"+(i+1)+"回目");
 
 		//userが入力した配列の表示
+		System.out.println("\r\n1~8の重複しない数字を入力してください");
+
 		int[] user =make.makearray();//ユーザー入力した配列の受け取り
 
 		for (int n : user) {

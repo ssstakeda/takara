@@ -22,13 +22,13 @@ public class Judge {//クラス：Judge
 
 	public int silverjudge(int[] num , int[] ram) {//引数：コンピューターの配列とユーザーの配列
 		//目的：コンピューターの選んだ数と入力された数を比較して、当たりがあるのか判定
-		int silver=0;//ゴールド判定個数の初期化
+		int silver=0;//シルバー判定個数の初期化
 
-		for(int n:num) {//配列のどれかが一致
+		for(int n:num) {//numを一個づつ取り出す
 
-			for(int r:ram) {//配列のどれかが一致
+			for(int r:ram) {//ramを一個づつ取り出す
 
-				if(n==r) {
+				if(n==r) {//配列のどれかが一致
 
 					silver++;
 

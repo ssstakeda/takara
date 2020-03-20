@@ -17,21 +17,64 @@ public class Make {//メソッドクラス
 
 		}
 
-		public int num() {//メソッド名：user 引数：なし
-
-			System.out.println("\r\n1~8の重複しない数字を入力してください");
+		public int[] makearray() {//メソッド名：user 引数：なし
 
 			Scanner scan= new Scanner(System.in);
 
-			int num=scan.nextInt();//目的：ユーザーに数を入力してもらう
+			int[] array=new int[4];
 
-			return num;//戻り値：ユーザーの入力した数
+			int a,b,c,d=0;
+
+			for(;;) {
+
+				System.out.println("1~8の重複しない4桁の整数を入力してください（橋元さんに詰められたので追加）");
+
+				int num=scan.nextInt();//目的：ユーザーに数を入力してもらう
+
+				if(num>1233&&num<9877) {//4桁の数
+
+					//num=1000a+100b+10c+d;	(xの範囲と重複チェック)
+					a=num/1000;
+
+					b=(num-1000*a)/100;
+
+					c=(num-1000*a-100*b)/10;
+
+					d=num-1000*a-100*b-10*c;
+
+					array[0]=a;//配列０の時
+
+					if(a!=b) {
+
+						array[1]=b;//配列1の時
+
+						if(b!=c&&a!=c) {
+
+							array[2]=c;
+
+							if(a!=d&&b!=d&&c!=d) {
+
+								array[3]=d;
+
+								break;
+
+							}else {continue;}
+
+						}else {continue;}
+
+					}else {continue;}
+
+				}else {continue;}
+
+			}
+
+			return array;
 
 		}
 
 		public int[] randomarray(){//重複しない4っつの数字を入れた配列を作る
 
-			System.out.println("重複しないランダムな4っつの数字を入れた配列");
+			System.out.println("\r\n1~8の重複しないランダムな4っつの数字を入れた配列");
 
 			int[] array=new int[4];
 
@@ -90,63 +133,4 @@ public class Make {//メソッドクラス
 
 		}
 
-		public int[] makearray(){//重複しない4っつの数字を入れた配列を作る
-
-			int[] array=new int[4];
-
-			Scanner scan = new Scanner(System.in);
-
-			int num=0;
-
-			int i=0;
-
-			while(i<4) {
-
-				num=this.num();
-
-				if(i==0) {//配列０の時
-
-					array[0]=num;
-
-				}
-
-				if(i==1) {//配列1の時
-
-					if(num!=array[0]) {
-
-						array[1]=num;
-
-					}else {continue;}
-
-				}
-
-				if(i==2) {//配列2の時
-
-					if(num!=array[0]&&num!=array[1]) {
-
-						array[2]=num;
-
-					}else {continue;}
-
-				}
-
-				if(i==3) {//配列3の時
-
-					if(num!=array[0]&&num!=array[1]&&num!=array[2]) {
-
-						array[3]=num;
-
-					}else {continue;}
-
-				}
-
-				i++;
-
-			}
-
-			return array;
-
-		}
-
 }
-
